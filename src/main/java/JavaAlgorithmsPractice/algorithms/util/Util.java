@@ -8,7 +8,7 @@ public class Util {
     public static int[] generateRandomArray(int arraySize) {
         int[] array = new int[arraySize];
         for (int i = 0; i < arraySize; i++) {
-            array[i] = (int) (Math.random() * 10) + 10;
+            array[i] = (int) (Math.random() * 50) + 10;
         }
         return array;
     }
@@ -22,65 +22,62 @@ public class Util {
         System.out.println("----------");
     }
 
-    public static void printHorzArray(int[] theArray, int arraySize, int leftPointer, int rightPointer) {
+    public static void printHorzArray(int[] theArray, int arraySize, int i, int j) {
 
-        for (int n = 0; n < 51; n++) System.out.print("-");
-
-        System.out.println();
-
-        for (int n = 0; n < arraySize; n++) {
-
-            System.out.print("| " + n + "  ");
-
-        }
-
-        System.out.println("|");
-
-        for (int n = 0; n < 51; n++) System.out.print("-");
+        for (int n = 0; n < 61; n++)
+            System.out.print("-");
 
         System.out.println();
 
         for (int n = 0; n < arraySize; n++) {
 
-            System.out.print("| " + theArray[n] + " ");
+            System.out.format("| %2s " + " ", n);
 
         }
 
         System.out.println("|");
 
-        for (int n = 0; n < 51; n++) System.out.print("-");
+        for (int n = 0; n < 61; n++)
+            System.out.print("-");
 
         System.out.println();
 
-        // END OF FIRST PART
+        for (int n = 0; n < arraySize; n++) {
 
-
-        // ADDED FOR BUBBLE SORT
-
-        if (rightPointer != -1) {
-
-            // ADD THE +2 TO FIX SPACING
-
-            for (int k = 0; k < ((rightPointer * 5) + 2); k++) System.out.print(" ");
-
-            System.out.print(rightPointer);
+            System.out.print(String.format("| %2s " + " ", theArray[n]));
 
         }
 
+        System.out.println("|");
 
-        // THEN ADD THIS CODE
-
-        if (leftPointer != -1) {
-
-            // ADD THE -1 TO FIX SPACING
-
-            for (int l = 0; l < (5 * (leftPointer - rightPointer) - 1); l++) System.out.print(" ");
-
-            System.out.print(leftPointer);
-
-        }
+        for (int n = 0; n < 61; n++)
+            System.out.print("-");
 
         System.out.println();
+
+        if (i != -1) {
+
+            // Number of spaces to put before the F
+
+            int spacesBeforeFront = 5 * i + 1;
+
+            for (int k = 0; k < spacesBeforeFront; k++)
+                System.out.print(" ");
+
+            System.out.print("L");
+
+            // Number of spaces to put before the R
+
+            int spacesBeforeRear = (5 * j + 1 - 1) - spacesBeforeFront;
+
+            for (int l = 0; l < spacesBeforeRear; l++)
+                System.out.print(" ");
+
+            System.out.print("H");
+
+            System.out.println("\n");
+
+        }
 
     }
 
