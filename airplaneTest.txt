@@ -1,0 +1,129 @@
+package com.jonathanlarav;
+
+public class Main {
+
+    private static int arraySize;
+    static int[] array;
+
+    public Main(int arraySize) {
+        array = new int[arraySize];
+        this.arraySize = arraySize;
+    }
+
+    public static void main(String[] args) {
+	    new Main(10);
+        //initializeOrderedArray();
+        initializeArray();
+        printVerticalArray();
+        printHorizontalArray();
+    }
+
+    private static void initializeArray() {
+        array[0] = 5;
+        array[1] = 4;
+        array[2] = 3;
+        array[3] = 2;
+        array[4] = 1;
+        array[5] = 6;
+        array[6] = 7;
+        array[7] = 8;
+        array[8] = 9;
+        array[9] = 10;
+    }
+
+    private static void initializeOrderedArray() {
+        for (int i=0 ; i<array.length ; i++) {
+            array[i] = i+1;
+        }
+    }
+
+    private static void printVerticalArray() {
+        System.out.println("\n");
+        for (int i=0 ; i<array.length ; i++) {
+            for (int j=0 ; j<arraySize ; j++) {
+                int value = array[i];
+                if(j + value >= arraySize) {
+                    System.out.print("  |#|");
+                } else {
+                    System.out.print("     ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+
+    private static void printHorizontalArray() {
+        System.out.println("\n");
+        for (int i=0 ; i<array.length ; i++) {
+            for (int j=0 ; j<arraySize ; j++) {
+                int value = array[i];
+                if(value - j > 0) {
+                    System.out.print("  |#|  ");
+                }else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+}
+
+
+TEST:
+
+
+         B
+        BB
+       BBB
+      BBBB
+     BBBBB
+    BBBBBB
+   BBBBBBB
+  BBBBBBBB
+ BBBBBBBBB
+BBBBBBBBBB
+
+
+
+Index + Val == Size = WS
+1
+(0 + 1 = 1) == 10 -> F
+(1 + 1 = 2) == 10 -> F
+(2 + 1 = 3) == 10 -> F
+(3 + 1 = 4) == 10 -> F
+
+(8 + 1 = 9) >= 10 -> F
+(9 + 1 = 10) >= 10 -> T
+
+2
+(0 + 2 = 2) == 10 -> F
+(1 + 2 = 3) == 10 -> F
+(2 + 2 = 4) == 10 -> F
+(3 + 2 = 5) == 10 -> F
+
+(8 + 2 = 10) >= 10 -> F
+(9 + 2 = 11) >= 10 -> T
+
+
+
+
+Size - Val = WS
+===============
+10 - 1 = 9
+10 - 2 = 8
+10 - 3 = 7
+
+
+Size = WS + Val
+===============
+10 = X + 1
+
+
+
+
+
+
+
+
+
